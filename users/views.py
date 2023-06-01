@@ -6,14 +6,7 @@ from users.models import register
 
 def reg(request):
     global fet
-    name = request.GET.get('name')
-    email = request.GET.get('email')
-    phone = request.GET.get('phone')
-    username = request.GET.get('username')
-    password = request.GET.get('password')
-    country = request.GET.get('country')
     temp = loader.get_template('reg.html')
-    
     #x = register(name=name,email=email,phone=phone,username=username,password=password,country=country)
     #x.save()
     con={}
@@ -36,14 +29,8 @@ def login(request):
     
     username = request.GET.get('username')
     password = request.GET.get('password') 
-    for i in  len(register.objects.all().values()):
-        if(username==register.objects.all()['username'] and password==register.objects.all()['password']):
-            print("Accepted User")
-        else:
-            print("prevented")
-            break
-
-
+    
+    print(request.GET)
 
 
     return HttpResponse(temp.render(con,request))
